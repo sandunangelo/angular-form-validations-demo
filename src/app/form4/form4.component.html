@@ -1,0 +1,24 @@
+<div class="well well-content">
+    <h3>Form 4 - Manual validation</h3>
+    <br>
+
+    <form (ngSubmit)="formSubmit();" #form="ngForm">
+
+        <input id="name" name="name" class="form-control" [(ngModel)]="model.name" #name="ngModel" autocomplete="off" (keyup)="nameChanged($event);">
+        <br>
+
+        <!-- <button type="submit" [disabled]="!isModelValid()" class="btn btn-primary">Submit</button> -->
+        <button type="submit" [disabled]="!isModelValidFlag" class="btn btn-primary">Submit</button>
+
+        <div *ngIf="name.dirty && hasErrorMessage" class="alert alert-danger">
+            {{errorMessage}}
+        </div>
+        <!-- <div *ngIf="name.dirty && errorMessage.length > 0" class="alert alert-danger">
+            {{errorMessage}}
+        </div> -->
+
+    </form>
+
+    <br> name: {{model.name}}, valid: {{name.valid}}
+
+</div>

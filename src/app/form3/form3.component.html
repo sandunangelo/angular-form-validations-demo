@@ -1,0 +1,28 @@
+<div class="well well-content">
+    <h3>Form 3 - Custom validation</h3>
+    <br>
+
+    <form (ngSubmit)="form.form.valid && formSubmit();" #form="ngForm">
+
+        <input id="name" name="name" class="form-control" required minlength="2" forbiddenName="sandun" [(ngModel)]="model.name"
+            #name="ngModel" autocomplete="off">
+
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+            <div *ngIf="name.errors.required">
+                Name is required.
+            </div>
+            <div *ngIf="name.errors.minlength">
+                Name must be at least 2 characters long.
+            </div>
+            <div *ngIf="name.errors.forbiddenName">
+                Name cannot be Sandun.
+            </div>
+        </div>
+        <br>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <br> name: {{model.name}}, valid: {{name.valid}}
+
+</div>

@@ -1,0 +1,31 @@
+<div class="well well-content">
+    <h3>Form 2 - Built-in validators</h3>
+    <br>
+    <form (ngSubmit)="form.form.valid && formSubmit();" #form="ngForm">
+
+        <input id="name" name="name" type="text" class="form-control" required minlength="4" [(ngModel)]="model.name" #name="ngModel"
+            autocomplete="off">
+
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+            <div *ngIf="name.errors.required">
+                Name is required.
+            </div>
+            <div *ngIf="name.errors.minlength">
+                Name must be at least 4 characters long.
+            </div>
+        </div>
+        <br>
+
+        <input id="age" name="age" type="number" class="form-control" required [(ngModel)]="model.age" #age="ngModel">
+        <div *ngIf="age.invalid && (age.dirty || age.touched)" class="alert alert-danger">
+            Age is required.
+        </div>
+        <br>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <br> name: {{model.name}}, valid: {{name.valid}}
+    <br> age: {{model.age}}, valid: {{age.valid}}
+
+</div>

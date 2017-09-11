@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+.form-control
+{
+    max-width: 500px;
+}
+
+div.alert
+{
+    max-width: 500px;
+}
+
+.ng-pristine:not(form),
+.ng-untouched:not(form)
+{
+    border-left: 5px solid #3497C1 !important;
+}
+
+.ng-valid[required],
+.ng-valid.required
+{
+    border-left: 5px solid #42A948; 
+}
+
+.ng-invalid:not(form)
+{
+    border-left: 5px solid #a94442; 
+}
